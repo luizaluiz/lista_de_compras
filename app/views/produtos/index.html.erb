@@ -5,14 +5,16 @@
             <th>Produto</th>
             <th>Preço</th>
             <th>Quantidade</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody> 
         <% @produtos.each do |produto| %>
             <tr>
                 <td><%= produto.nome %></td>
-                <td>R$<%= produto.preco %></td>
+                <td>R<%= number_to_currency(produto.preco) %></td>
                 <td><%= produto.quantidade %></td>
+                <td>R<%= number_to_currency(produto.preco * produto.quantidade) %></td>
             </tr>
         <% end %>
     </tbody> 
